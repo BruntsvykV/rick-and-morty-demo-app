@@ -1,3 +1,8 @@
+# This is an example of Rick and Morty demo-app.
+
+# Demo viewing -- [Rick and Morty demo-app](https://rick-and-morty-demo-edkuc9syx-bruntsvykv.vercel.app/)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
