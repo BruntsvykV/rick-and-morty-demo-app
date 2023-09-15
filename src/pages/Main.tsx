@@ -102,6 +102,11 @@ const Main = () => {
 
   }, [characters]);
 
+  // Scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const currentHistoryJSON = localStorage.getItem(LOCAL_STORAGE_KEY);
   const currentHistory: { id: number; value: string }[] = currentHistoryJSON
     ? JSON.parse(currentHistoryJSON)

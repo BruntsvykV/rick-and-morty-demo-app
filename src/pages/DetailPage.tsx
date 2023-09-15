@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ICharacter } from "../services/interfaces/ICharacter";
 import { LOCAL_STORAGE_KEY } from "../services/Constants";
+import { useAppSelector } from "../store";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 import axios from "axios";
 
 const DetailPage = () => {
 
   const { id } = useParams();
 
+  const info = useAppSelector(state => state.character.info);
   const [character, setCharacter] = useState<ICharacter>({
     id: 0,
     name: '',
@@ -78,13 +82,32 @@ const DetailPage = () => {
 
   }, [character]);
 
+  // Scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 367);
+  }, []);
+
+
   return (
-    <div className={"detail-card-container"}>
-      <img src={character.image} alt={"detail card"} className={"detail-card-image"}/>
-      <div className={"detail-card-info"}>
-        <div className={"detail-card-description"}>
-          <span className={"character-name"}>{character.name}</span>
-          <div>
+    <>
+      <Stack paddingTop={3} direction="row">
+        <Button>
+          <Link
+            to={info.prev === null
+              ? "/"
+              : `/?page=${parseInt(info.prev.split('=')[1]) + 1}`}
+            style={{ color: "#1976D2" }}
+          >
+            Back to characters
+          </Link>
+        </Button>
+      </Stack>
+      <div className={"detail-card-container"}>
+        <img src={character.image} alt={"detail card"} className={"detail-card-image"}/>
+        <div className={"detail-card-info"}>
+          <div className={"detail-card-description"}>
+            <span className={"character-name"}>{character.name}</span>
+            <div>
             <span
               className={"alive-indicator"}
               style={{
@@ -96,19 +119,20 @@ const DetailPage = () => {
                       : '#9E9E9E' // unknown
               }}
             />
-            <span className={"character-status"}>{`${character.status} - ${character.species}`}</span>
+              <span className={"character-status"}>{`${character.status} - ${character.species}`}</span>
+            </div>
+          </div>
+          <div className={"detail-card-description"}>
+            <span className={"location-title"}>Last known location:</span>
+            <span className={"location-description"}>{character.location.name}</span>
+          </div>
+          <div className={"detail-card-description"}>
+            <span className={"first-seen"}>First seen in:</span>
+            <span className={"first-seen"}>{firstEpisode}</span>
           </div>
         </div>
-        <div className={"detail-card-description"}>
-          <span className={"location-title"}>Last known location:</span>
-          <span className={"location-description"}>{character.location.name}</span>
-        </div>
-        <div className={"detail-card-description"}>
-          <span className={"first-seen"}>First seen in:</span>
-          <span className={"first-seen"}>{firstEpisode}</span>
-        </div>
       </div>
-    </div>
+    </>
   )
 }
 
