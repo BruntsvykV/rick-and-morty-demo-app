@@ -1,6 +1,6 @@
 # This is an example of Rick and Morty demo-app.
 
-# Demo viewing -- [Rick and Morty demo-app](https://rick-and-morty-demo-app-pink.vercel.app/)
+# Demo viewing -- [Rick and Morty demo-app](https://rick-and-morty-demo-fjubvykmt-bruntsvykv.vercel.app/)
 
 
 # Getting Started with Create React App
