@@ -26,17 +26,17 @@ const Footer = () => {
       </div>
       <div className={"footer-social"}>
         <div className={"footer-icon"}>
-          <a href={"https://github.com/"} target={"_blank"}>
+          <a href={"https://github.com/"} target={"_blank"} rel="noreferrer">
             <GitHubIcon/>
           </a>
         </div>
         <div className={"footer-icon"}>
-          <a href={"https://twitter.com/"} target={"_blank"}>
+          <a href={"https://twitter.com/"} target={"_blank"} rel="noreferrer">
             <TwitterIcon/>
           </a>
         </div>
         <div className={"footer-icon"}>
-          <a href={"https://savelife.in.ua/"} target={"_blank"}>
+          <a href={"https://savelife.in.ua/"} target={"_blank"} rel="noreferrer">
             <SupportUsIcon/>
           </a>
         </div>

@@ -80,7 +80,7 @@ const DetailPage = () => {
 
     }
 
-  }, [character]);
+  }, [character, id]);
 
   // Scroll to top
   useEffect(() => {
